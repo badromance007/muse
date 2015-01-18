@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def show
     @comments = Comment.where(post_id: @post)
     # not means post we are finding is not the same as current post
-    @random_post = Post.where.not(id: @post).order("RANDOM()").first
+    @random_posts = Post.where.not(id: @post).order("RANDOM()").limit(2)
   end
 
   def new
